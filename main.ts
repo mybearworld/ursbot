@@ -8,5 +8,5 @@ if (!username || !password) {
 }
 
 const bot = new RoarBot();
-bot.run(import("./commands/geminium.ts"));
+bot.run(import("./commands/geminium.ts"), import("./commands/symbolrace.ts"));
 bot.login(username, password);
