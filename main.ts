@@ -1,4 +1,4 @@
-import { RoarBot } from "jsr:@mbw/roarbot";
+import { RoarBot } from "@mbw/roarbot";
 import "jsr:@std/dotenv/load";
 
 const username = Deno.env.get("BOT_USERNAME");
@@ -8,24 +8,5 @@ if (!username || !password) {
 }
 
 const bot = new RoarBot();
-bot.command("ask", {
-  description: "Ask Geminium something!",
-  args: [{ name: "query", type: "full" }],
-  fn: async (reply, [query]) => {
-    reply("Hmm...");
-    const response = await fetch(
-      "https://geminium.joshatticus.online/api/geminium/ask",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: query }),
-      }
-    );
-    if (response.status !== 200) {
-      reply(`Something went wrong! ${response.status}`);
-      return;
-    }
-    reply(await response.text());
-  },
-});
+bot.run(import("./commands/geminium.ts"));
 bot.login(username, password);
