@@ -5,7 +5,7 @@ export default (bot: RoarBot) => {
     description: "Ask Geminium something!",
     args: [{ name: "query", type: "full" }],
     fn: async (reply, [query]) => {
-      reply("Hmm...");
+      await reply("Hmm...");
       const response = await fetch(
         "https://geminium.joshatticus.online/api/geminium/ask",
         {
@@ -15,10 +15,10 @@ export default (bot: RoarBot) => {
         }
       );
       if (response.status !== 200) {
-        reply(`Something went wrong! ${response.status}`);
+       await reply(`Something went wrong! ${response.status}`);
         return;
       }
-      reply(await response.text());
+      await reply(await response.text());
     },
   });
 };
