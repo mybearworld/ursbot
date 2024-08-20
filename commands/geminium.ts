@@ -12,10 +12,10 @@ export default (bot: RoarBot) => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ question: query }),
-        }
+        },
       );
       if (response.status !== 200) {
-       await reply(`Something went wrong! ${response.status}`);
+        await reply(`Something went wrong! ${response.status}`);
         return;
       }
       await reply(await response.text());

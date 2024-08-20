@@ -37,7 +37,7 @@ export default (bot: RoarBot) => {
       await reply(
         "Alright! Who can type these the fastest?\n`@BearBot sr " +
           randomSymbols.replace(/./g, (s) => `${s}\u200c`) +
-          "`"
+          "`",
       );
     },
   });

@@ -8,13 +8,10 @@ export default (bot: RoarBot) => {
     fn: async (reply, [code]) => {
       const resp = eval?.(code);
       await reply(
-        resp === null
-          ? "<null>"
-          : resp === undefined
-            ? "<undefined>"
-            : typeof resp === "string"
-              ? JSON.stringify(resp)
-              : String(resp)
+        resp === null ? "<null>"
+        : resp === undefined ? "<undefined>"
+        : typeof resp === "string" ? JSON.stringify(resp)
+        : String(resp),
       );
     },
   });
