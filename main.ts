@@ -3,13 +3,17 @@ import "jsr:@std/dotenv/load";
 
 const username = Deno.env.get("BOT_USERNAME");
 const password = Deno.env.get("BOT_PASSWORD");
-if (!username || !password) {
-  throw new Error("Specify BOT_USERNAME and BOT_PASSWORD in the .env");
+const admins = Deno.env.get("BOT_ADMINS")?.split(",");
+if (!username || !password || !admins) {
+  throw new Error(
+    "Specify BOT_USERNAME and BOT_PASSWORD and BOT_ADMINS in the .env"
+  );
 }
 
-const bot = new RoarBot();
+const bot = new RoarBot({ admins });
 bot.run(
   import("./commands/geminium.ts"),
+  import("./commands/js.ts"),
   import("./commands/symbolrace.ts"),
   import("./commands/whois.ts")
 );

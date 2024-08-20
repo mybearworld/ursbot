@@ -3,7 +3,6 @@
   "packages": {
     "specifiers": {
       "jsr:@mbw/roarbot": "jsr:@mbw/roarbot@1.6.1",
-      "jsr:@mbw/roarbot@^1.6.0": "jsr:@mbw/roarbot@1.6.0",
       "jsr:@mbw/roarbot@^1.6.1": "jsr:@mbw/roarbot@1.6.1",
       "jsr:@std/dotenv": "jsr:@std/dotenv@0.225.0",
       "npm:zod@3": "npm:zod@3.23.8"
@@ -11,12 +10,6 @@
     "jsr": {
       "@mbw/roarbot@1.0.1": {
         "integrity": "30ab8815f63424d1b3ba1c721b295e51bcd9be9b70fca75571d37b11ae0e7a6a",
-        "dependencies": [
-          "npm:zod@3"
-        ]
-      },
-      "@mbw/roarbot@1.6.0": {
-        "integrity": "dd159f142f67b9f795d1dcc69f5676d931ac25dfdae2430862ef1f9961076f88",
         "dependencies": [
           "npm:zod@3"
         ]
@@ -44,7 +37,7 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@mbw/roarbot@^1.6.0"
+      "jsr:@mbw/roarbot@^1.6.1"
     ]
   }
 }
