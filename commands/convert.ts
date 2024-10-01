@@ -5,11 +5,11 @@ const round = (n: number) => Math.floor(n * 100) / 100;
 const UNITS: [RegExp, (unit: number) => string][] = [
   [/^°?C$/, (c) => `${round(c * (9 / 5) + 32)}°F`],
   [/^°?F$/, (f) => `${round((f - 32) * (5 / 9))}°C`],
-  [/^cm|centim(?:et(?:re|er)s?)?$/, (m) => `${round(m / 2.54)}in`],
-  [/^m(?:et(?:re|er)s?)?$/, (m) => `${round(m * 3.281)}ft`],
-  [/^km|kilom(?:et(?:re|er)s?)?$/, (k) => `${round(k / 1.609)}mi`],
-  [/^in|inch(?:es)?$/, (i) => `${round(i * 2.54)}cm`],
-  [/^ft|feet|foot$/, (f) => `${round(f / 3.281)}m`],
+  [/^(?:cm|centim(?:et(?:re|er)s?)?)$/, (m) => `${round(m / 2.54)}in`],
+  [/^(?:m(?:et(?:re|er)s?)?)$/, (m) => `${round(m * 3.281)}ft`],
+  [/^(?:km|kilom(?:et(?:re|er)s?)?)$/, (k) => `${round(k / 1.609)}mi`],
+  [/^(?:in|inch(?:es)?)$/, (i) => `${round(i * 2.54)}cm`],
+  [/^(?:ft|feet|foot)$/, (f) => `${round(f / 3.281)}m`],
   [/^mi(?:les?)?$/, (m) => `${round(m * 1.609)}km`],
 ];
 
