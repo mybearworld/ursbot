@@ -1,14 +1,16 @@
 import type { RoarBot } from "@mbw/roarbot";
 
+const round = (n: number) => Math.floor(n * 100) / 100;
+
 const UNITS: [RegExp, (unit: number) => string][] = [
-  [/^°?C$/, (c) => `${c * (9 / 5) + 32}°F`],
-  [/^°?F$/, (f) => `${(f - 32) * (5 / 9)}°C`],
-  [/^cm|centim(?:et(?:re|er)s?)?$/, (m) => `${m / 2.54}in`],
-  [/^m(?:et(?:re|er)s?)?$/, (m) => `${m * 3.281}ft`],
-  [/^km|kilom(?:et(?:re|er)s?)?$/, (k) => `${k / 1.609}mi`],
-  [/^in|inch(?:es)?$/, (i) => `${i * 2.54}cm`],
-  [/^ft|feet|foot$/, (f) => `${f / 3.281}m`],
-  [/^mi(?:les?)?$/, (m) => `${m * 1.609}km`],
+  [/^°?C$/, (c) => `${round(c * (9 / 5) + 32)}°F`],
+  [/^°?F$/, (f) => `${round((f - 32) * (5 / 9))}°C`],
+  [/^cm|centim(?:et(?:re|er)s?)?$/, (m) => `${round(m / 2.54)}in`],
+  [/^m(?:et(?:re|er)s?)?$/, (m) => `${round(m * 3.281)}ft`],
+  [/^km|kilom(?:et(?:re|er)s?)?$/, (k) => `${round(k / 1.609)}mi`],
+  [/^in|inch(?:es)?$/, (i) => `${round(i * 2.54)}cm`],
+  [/^ft|feet|foot$/, (f) => `${round(f / 3.281)}m`],
+  [/^mi(?:les?)?$/, (m) => `${round(m * 1.609)}km`],
 ];
 
 export default (bot: RoarBot) => {
@@ -37,7 +39,9 @@ export default (bot: RoarBot) => {
         await reply("Found no units to convert.");
         return;
       }
-      await reply(`Sure! That is:\n${replaced.replace(/^/gm, "> ")}`);
+      await reply(
+        `Sure! That is:\n> @${toConvert.username}\n${replaced.replace(/^/gm, "> ")}`,
+      );
     },
   });
 };
