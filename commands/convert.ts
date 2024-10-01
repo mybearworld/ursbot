@@ -19,7 +19,7 @@ const UNITS: [RegExp, (unit: number) => string][] = [
 
 export default (bot: RoarBot) => {
   bot.command("convert", {
-    description: `Reply to a post with "@${bot.username} convert" to convert the units in that post! (Supported: °C <-> °F)`,
+    description: `Reply to a post with "@${bot.username} convert" to convert the units in that post! (Supported: °C, °F, cm, m, km, in, ft, mi, kg, g, lbs, oz)`,
     args: [],
     fn: async (reply, _, post) => {
       const [toConvert] = post.replyTo;
