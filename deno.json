@@ -1,5 +1,5 @@
 {
-  "imports": { "@mbw/roarbot": "jsr:@mbw/roarbot@^1.6.1" },
+  "imports": { "@mbw/roarbot": "jsr:@mbw/roarbot@^1.6.3" },
   "tasks": {
     "run": "deno run --allow-env --allow-net --allow-read main.ts"
   }
