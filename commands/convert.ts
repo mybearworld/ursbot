@@ -44,7 +44,7 @@ export default (bot: RoarBot) => {
         return;
       }
       await reply(
-        `Sure! That is:\n${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`,
+        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`,
       );
     },
   });
