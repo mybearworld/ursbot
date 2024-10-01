@@ -11,6 +11,10 @@ const UNITS: [RegExp, (unit: number) => string][] = [
   [/^(?:in|inch(?:es)?)$/, (i) => `${round(i * 2.54)}cm`],
   [/^(?:ft|feet|foot)$/, (f) => `${round(f / 3.281)}m`],
   [/^mi(?:les?)?$/, (m) => `${round(m * 1.609)}km`],
+  [/^(?:kg|kilograms?)$/, (k) => `${round(k * 2.20462)}lbs`],
+  [/^(?:g(?:rams?)?)$/, (g) => `${round(g / 28.3495)}oz`],
+  [/^(?:lbs|pounds?)$/, (l) => `${round(l / 2.20462)}kg`],
+  [/^(?:oz|ounces?)$/, (o) => `${round(o * 28.3495)}g`],
 ];
 
 export default (bot: RoarBot) => {
