@@ -1,14 +1,14 @@
 import type { RoarBot } from "@mbw/roarbot";
 
 const UNITS: [RegExp, (unit: number) => string][] = [
-  [/°?C/, (c) => `${c * (9 / 5) + 32}°F`],
-  [/°?F/, (f) => `${(f - 32) * (5 / 9)}°C`],
-  [/cm|centim(?:et(?:re|er)s?)?/, (m) => `${m / 2.54}in`],
-  [/m(?:et(?:re|er)s?)?/, (m) => `${m * 3.281}ft`],
-  [/km|kilom(?:et(?:re|er)s?)?/, (k) => `${k / 1.609}mi`],
-  [/in|inch(?:es)?/, (i) => `${i * 2.54}cm`],
-  [/ft|feet|foot/, (f) => `${f / 3.281}m`],
-  [/mi(?:les?)?/, (m) => `${m * 1.609}km`],
+  [/^°?C$/, (c) => `${c * (9 / 5) + 32}°F`],
+  [/^°?F$/, (f) => `${(f - 32) * (5 / 9)}°C`],
+  [/^cm|centim(?:et(?:re|er)s?)?$/, (m) => `${m / 2.54}in`],
+  [/^m(?:et(?:re|er)s?)?$/, (m) => `${m * 3.281}ft`],
+  [/^km|kilom(?:et(?:re|er)s?)?$/, (k) => `${k / 1.609}mi`],
+  [/^in|inch(?:es)?$/, (i) => `${i * 2.54}cm`],
+  [/^ft|feet|foot$/, (f) => `${f / 3.281}m`],
+  [/^mi(?:les?)?$/, (m) => `${m * 1.609}km`],
 ];
 
 export default (bot: RoarBot) => {
