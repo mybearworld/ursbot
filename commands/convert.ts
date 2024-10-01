@@ -28,12 +28,12 @@ export default (bot: RoarBot) => {
         return;
       }
       const replaced = toConvert.content.replace(
-        /(-?\d+(?:.\d+)?) ?(\S+)/g,
+        /(-?\d+(?:.\d+)?|an?) ?(\S+)/g,
         (s, num, unit) => {
           const number = Number(num);
           for (const [re, convert] of UNITS) {
             if (re.test(unit)) {
-              return convert(number);
+              return convert(Number.isNaN(number) ? 1 : number);
             }
           }
           return s;
