@@ -1,7 +1,9 @@
 import type { RoarBot } from "@mbw/roarbot";
 
-const celsiusToFahrenheit = (c: number) => c * (9 / 5) + 32;
-const fahrenheitToCelsius = (f: number) => (f - 32) * (5 / 9);
+const UNITS: [RegExp, (unit: number) => string][] = [
+  [/°?C/, (c) => `${c * (9 / 5) + 32}°F`],
+  [/°?F/, (f) => `${(f - 32) * (5 / 9)}°C`],
+];
 
 export default (bot: RoarBot) => {
   bot.command("convert", {
@@ -14,12 +16,15 @@ export default (bot: RoarBot) => {
         return;
       }
       const replaced = toConvert.content.replace(
-        /(-?\d+(?:.\d+)?)°?(C|F)/g,
-        (_, num, unit) => {
+        /(-?\d+(?:.\d+)?) ?(\S+)/g,
+        (s, num, unit) => {
           const number = Number(num);
-          return unit === "C" ?
-              `${celsiusToFahrenheit(number)}°F`
-            : `${fahrenheitToCelsius(number)}°C`;
+          for (const [re, convert] of UNITS) {
+            if (re.test(unit)) {
+              return convert(number);
+            }
+          }
+          return s;
         },
       );
       if (replaced === toConvert.content) {
