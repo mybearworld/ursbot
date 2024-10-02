@@ -1,6 +1,6 @@
 import type { RoarBot } from "@mbw/roarbot";
 
-const round = (n: number) => Math.floor(n * 100) / 100;
+const round = (n: number) => Math.floor(n * 1000) / 1000;
 
 const UNITS: [RegExp, (unit: number) => string][] = [
   [/^°?C$/, (c) => `${round(c * (9 / 5) + 32)}°F`],
