@@ -15,6 +15,8 @@ const UNITS: [RegExp, (unit: number) => string][] = [
   [/^(?:g(?:rams?)?)$/, (g) => `${round(g / 28.3495)}oz`],
   [/^(?:lbs|pounds?)$/, (l) => `${round(l / 2.20462)}kg`],
   [/^(?:oz|ounces?)$/, (o) => `${round(o * 28.3495)}g`],
+  [/^(?:l|lit(?:er|re)s?)$/, (l) => `${round(l / 3.7854)} gal`],
+  [/^(?:gal|gallons?)$/, (g) => `${round(g * 3.7854)}l`],
 ];
 
 export default (bot: RoarBot) => {
