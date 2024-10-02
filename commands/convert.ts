@@ -28,7 +28,7 @@ export default (bot: RoarBot) => {
         return;
       }
       const replaced = toConvert.content.replace(
-        /(-?\d+(?:.\d+)?|an?) ?(\S+)/g,
+        /(-?\d+(?:.\d+)?|an?) ?([a-z]+)/gi,
         (s, num, unit) => {
           const number = Number(num);
           for (const [re, convert] of UNITS) {
