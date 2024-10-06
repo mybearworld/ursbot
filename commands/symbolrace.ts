@@ -35,7 +35,7 @@ export default (bot: RoarBot) => {
       const randomSymbols = generateSymbols();
       race = randomSymbols;
       await reply(
-        "Alright! Who can type these the fastest?\n`@BearBot sr " +
+        "Alright! Who can type these the fastest?\n`@UrsBot sr " +
           randomSymbols.replace(/./g, (s) => `${s}\u200c`) +
           "`",
       );
