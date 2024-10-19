@@ -1,46 +1,44 @@
 {
-  "version": "3",
-  "packages": {
-    "specifiers": {
-      "jsr:@luca/cases": "jsr:@luca/cases@1.0.0",
-      "jsr:@mbw/roarbot@^1.6.3": "jsr:@mbw/roarbot@1.6.3",
-      "jsr:@std/dotenv": "jsr:@std/dotenv@0.225.0",
-      "npm:zod@3": "npm:zod@3.23.8"
+  "version": "4",
+  "specifiers": {
+    "jsr:@luca/cases@*": "1.0.0",
+    "jsr:@mbw/roarbot@^1.6.3": "1.6.3",
+    "jsr:@std/dotenv@*": "0.225.0",
+    "npm:zod@3": "3.23.8",
+    "npm:zod@^3.23.8": "3.23.8"
+  },
+  "jsr": {
+    "@luca/cases@1.0.0": {
+      "integrity": "b5f9471f1830595e63a2b7d62821ac822a19e16899e6584799be63f17a1fbc30"
     },
-    "jsr": {
-      "@luca/cases@1.0.0": {
-        "integrity": "b5f9471f1830595e63a2b7d62821ac822a19e16899e6584799be63f17a1fbc30"
-      },
-      "@mbw/roarbot@1.0.1": {
-        "integrity": "30ab8815f63424d1b3ba1c721b295e51bcd9be9b70fca75571d37b11ae0e7a6a",
-        "dependencies": [
-          "npm:zod@3"
-        ]
-      },
-      "@mbw/roarbot@1.6.3": {
-        "integrity": "9ad322dace3622df0d4fb2a0ef98ca59660c5215b4f506b33b7ad358762e2792",
-        "dependencies": [
-          "npm:zod@3"
-        ]
-      },
-      "@std/dotenv@0.224.0": {
-        "integrity": "d9234cdf551507dcda60abb6c474289843741d8c07ee8ce540c60f5c1b220a1d"
-      },
-      "@std/dotenv@0.225.0": {
-        "integrity": "44db32932c67df82790a3e6847d7007befb6cc22d71f2f3ee7b7d00e1f0d6c94"
-      }
+    "@mbw/roarbot@1.0.1": {
+      "integrity": "30ab8815f63424d1b3ba1c721b295e51bcd9be9b70fca75571d37b11ae0e7a6a",
+      "dependencies": [
+        "npm:zod@3"
+      ]
     },
-    "npm": {
-      "zod@3.23.8": {
-        "integrity": "sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==",
-        "dependencies": {}
-      }
+    "@mbw/roarbot@1.6.3": {
+      "integrity": "9ad322dace3622df0d4fb2a0ef98ca59660c5215b4f506b33b7ad358762e2792",
+      "dependencies": [
+        "npm:zod@3"
+      ]
+    },
+    "@std/dotenv@0.224.0": {
+      "integrity": "d9234cdf551507dcda60abb6c474289843741d8c07ee8ce540c60f5c1b220a1d"
+    },
+    "@std/dotenv@0.225.0": {
+      "integrity": "44db32932c67df82790a3e6847d7007befb6cc22d71f2f3ee7b7d00e1f0d6c94"
     }
   },
-  "remote": {},
+  "npm": {
+    "zod@3.23.8": {
+      "integrity": "sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g=="
+    }
+  },
   "workspace": {
     "dependencies": [
-      "jsr:@mbw/roarbot@^1.6.3"
+      "jsr:@mbw/roarbot@^1.6.3",
+      "npm:zod@^3.23.8"
     ]
   }
 }
