@@ -31,7 +31,7 @@ export default (bot: RoarBot) => {
         return;
       }
       const replaced = toConvert.content.replace(
-        /(-?\d+(?:.\d+)?|an?) ?([a-z]+)/gi,
+        /(-?\d+(?:.\d+)?|an?) ?([°a-z]+)/gi,
         (s, num, unit) => {
           const number = Number(num);
           for (const [re, convert] of UNITS) {
@@ -40,14 +40,14 @@ export default (bot: RoarBot) => {
             }
           }
           return s;
-        },
+        }
       );
       if (replaced === toConvert.content) {
         await reply("Found no units to convert.");
         return;
       }
       await reply(
-        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`,
+        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`
       );
     },
   });
