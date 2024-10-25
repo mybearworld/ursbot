@@ -13,6 +13,7 @@ if (!username || !password || !admins) {
 const bot = new RoarBot({ admins, banned: ["yadayadayadagoodbye"] });
 bot.run(
   import("./commands/convert.ts"),
+  import("./commands/clean.ts"),
   import("./commands/geminium.ts"),
   import("./commands/nova.ts"),
   import("./commands/js.ts"),
