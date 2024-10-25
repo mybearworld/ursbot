@@ -16,8 +16,9 @@ const resultToMD = (result: Result) => {
     "](" +
     result.url.replace(/\)/g, "\\)").replace(/\n/g, " ") +
     ")";
-  const description = result.description
-    ? "> _" + result.description.replace(/_/g, "\\_") + "_"
+  const description =
+    result.description ?
+      "> _" + result.description.replace(/_/g, "\\_") + "_"
     : "";
   return title + "\n" + description;
 };
@@ -31,7 +32,7 @@ export default (bot: RoarBot) => {
     args: ["full"],
     fn: async (reply, [msg]) => {
       const response = await fetch(
-        `https://api.novasearch.xyz/search?query=${encodeURIComponent(msg)}`
+        `https://api.novasearch.xyz/search?query=${encodeURIComponent(msg)}`,
       );
       if (!response.ok) {
         if (response.status === 410) {
@@ -44,7 +45,7 @@ export default (bot: RoarBot) => {
       const search = searchSchema.parse(await response.json());
       await reply(
         `**Results 1-${Math.min(10, search.length)} of ${search.length}:**\n` +
-          search.slice(0, 10).map(resultToMD).join("\n\n")
+          search.slice(0, 10).map(resultToMD).join("\n\n"),
       );
     },
   });

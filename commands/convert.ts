@@ -40,14 +40,14 @@ export default (bot: RoarBot) => {
             }
           }
           return s;
-        }
+        },
       );
       if (replaced === toConvert.content) {
         await reply("Found no units to convert.");
         return;
       }
       await reply(
-        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`
+        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`,
       );
     },
   });

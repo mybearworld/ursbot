@@ -6,7 +6,7 @@ export default (bot: RoarBot) => {
     admin: true,
     args: ["full"],
     fn: async (reply, [code]) => {
-      const resp = eval?.(code);
+      const resp = eval(code);
       await reply(
         resp === null ? "<null>"
         : resp === undefined ? "<undefined>"
