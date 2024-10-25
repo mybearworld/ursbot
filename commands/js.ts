@@ -6,10 +6,12 @@ export default (bot: RoarBot) => {
     admin: true,
     args: ["full"],
     fn: async (reply, [code]) => {
-      const resp = eval(code);
+      const resp = new Function(code).call({ bot });
+      if (resp === undefined) {
+        return;
+      }
       await reply(
         resp === null ? "<null>"
-        : resp === undefined ? "<undefined>"
         : typeof resp === "string" ? JSON.stringify(resp)
         : String(resp),
       );
