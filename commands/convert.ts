@@ -23,14 +23,9 @@ export default (bot: RoarBot) => {
   bot.command("convert", {
     description:
       'Reply to a post with "@UrsBot convert" to convert the units in that post! (Supported: °C, °F, cm, m, km, in, ft, mi, kg, g, lbs, oz)',
-    args: [],
-    fn: async (reply, _, post) => {
-      const [toConvert] = post.replyTo;
-      if (!toConvert) {
-        await reply("Reply to a post to use this command!");
-        return;
-      }
-      const replaced = toConvert.content.replace(
+    args: ["reply"],
+    fn: async (reply, [post]) => {
+      const replaced = post.content.replace(
         /(-?\d+(?:.\d+)?|an?) ?([°a-z]+)/gi,
         (s, num, unit) => {
           const number = Number(num);
@@ -42,12 +37,12 @@ export default (bot: RoarBot) => {
           return s;
         },
       );
-      if (replaced === toConvert.content) {
+      if (replaced === post.content) {
         await reply("Found no units to convert.");
         return;
       }
       await reply(
-        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${toConvert.username}`,
+        `${replaced.replace(/^/gm, "> ")}\n>\n> \\- @${post.username}`,
       );
     },
   });
