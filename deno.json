@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@mbw/roarbot": "jsr:@mbw/roarbot@1.7.1",
+    "@mbw/roarbot": "jsr:@mbw/roarbot@1.8.0",
     "zod": "npm:zod@^3.23.8"
   },
   "tasks": {
