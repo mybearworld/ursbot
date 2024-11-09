@@ -2,7 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@luca/cases@*": "1.0.0",
-    "jsr:@mbw/roarbot@1.8.0": "1.8.0",
+    "jsr:@mbw/roarbot@1.8.2": "1.8.2",
     "jsr:@std/dotenv@*": "0.225.0",
     "npm:zod@3": "3.23.8",
     "npm:zod@^3.23.8": "3.23.8"
@@ -17,8 +17,8 @@
         "npm:zod@3"
       ]
     },
-    "@mbw/roarbot@1.8.0": {
-      "integrity": "ebb1ec8c7f0a4a44be17b199515b5fa144a886f9ae430c50f32e70b677d14953",
+    "@mbw/roarbot@1.8.2": {
+      "integrity": "874aef0b9812557929241dd66dc6a07e93768d88a27f25bde830000795b38452",
       "dependencies": [
         "npm:zod@3"
       ]
@@ -37,7 +37,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@mbw/roarbot@1.8.0",
+      "jsr:@mbw/roarbot@1.8.2",
       "npm:zod@^3.23.8"
     ]
   }
