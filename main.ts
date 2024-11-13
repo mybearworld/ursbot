@@ -15,6 +15,7 @@ bot.run(
   import("./commands/convert.ts"),
   import("./commands/clean.ts"),
   import("./commands/geminium.ts"),
+  import("./commands/ismeowerdownyet.ts"),
   import("./commands/nova.ts"),
   import("./commands/js.ts"),
   import("./commands/symbolrace.ts"),
